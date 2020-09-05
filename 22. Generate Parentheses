@@ -1,0 +1,18 @@
+class Solution {
+public:
+    void backTrack(vector<string> &v,string curr,int open,int close,int max){
+        if(curr.length()==max*2){
+            v.push_back(curr);
+            return;
+        }
+        if(open<max)
+            backTrack(v,curr+"(",open+1,close,max);
+        if(close<open)
+            backTrack(v,curr+")",open,close+1,max);
+    }
+    vector<string> generateParenthesis(int n) {
+        vector<string> v;
+        backTrack(v,"",0,0,n);
+        return v;
+    }
+};
