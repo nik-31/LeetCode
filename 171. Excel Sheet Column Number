@@ -1,0 +1,11 @@
+class Solution {
+public:
+    int titleToNumber(string s) {
+        int t=s.length();
+        int ans=0;
+        for(int i=1;i<=t;i++){
+            ans += pow(26,t-i)*(s[i-1]-64);
+        }
+        return ans;
+    }
+};
